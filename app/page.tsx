@@ -5,9 +5,9 @@ import { useState } from "react";
 const asset = (path: string) => `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${path}`;
 
 const slides = [
-  { image: "/dino-campaign-gym-stronger-v3.png", title: "", className: "challengeSlide" },
-  { image: "/dino-oldschool-gym.png", title: "GROWTH", className: "growthSlide" },
-  { image: "/dino-stronger-back-v1.png", title: "STRONG", className: "strongSlide" },
+  { image: "/dino-campaign-gym-stronger-v3.png", mobileImage: "/dino-mobile-wall-stronger-v1.png", title: "", className: "challengeSlide" },
+  { image: "/dino-oldschool-gym.png", mobileImage: null, title: "GROWTH", className: "growthSlide" },
+  { image: "/dino-stronger-back-v1.png", mobileImage: null, title: "STRONG", className: "strongSlide" },
 ];
 
 const subCategories = ["전체상품", "상의", "하의", "아우터", "짐웨어", "언더웨어"];
@@ -83,15 +83,12 @@ export default function Home() {
       }}>
         {slides.map((slide) => (
           <section className={`heroSlide ${slide.className}`} key={slide.image} onClick={openProducts} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") openProducts(); }} role="button" tabIndex={0} aria-label={`DINO ${slide.title || "STRONGER STARTS HERE"} 제품 보기`}>
-            <img src={asset(slide.image)} alt={`DINO ${slide.title}`} />
+            <picture>
+              {slide.mobileImage && <source media="(max-width: 900px)" srcSet={asset(slide.mobileImage)} />}
+              <img src={asset(slide.image)} alt={`DINO ${slide.title || "STRONGER STARTS HERE"}`} />
+            </picture>
             <div className="slideShade" />
             <div className="slideCopy">
-              {slide.className === "challengeSlide" && (
-                <div className="mobileChallengeBrand" aria-hidden="true">
-                  <img src={asset("/dino-logo-transparent-v1.png")} alt="" />
-                  <strong>STRONGER<br />STARTS HERE</strong>
-                </div>
-              )}
               {slide.title && <h1>{slide.title}</h1>}
               <button onClick={openProducts}>SHOP NOW</button>
             </div>
