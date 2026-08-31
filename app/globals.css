@@ -32,6 +32,7 @@ button { padding:0; border:0; background:none; color:inherit; font:inherit; curs
 .slideCopy { position:absolute; z-index:2; top:50%; left:50%; display:flex; flex-direction:column; align-items:center; transform:translate(-50%,-42%); text-align:center; }
 .slideCopy small { margin-bottom:8px; color:#fff; font-size:10px; font-weight:700; letter-spacing:.32em; }
 .slideCopy h1 { margin:0 0 32px; font-family:Georgia, "Times New Roman", serif; font-size:clamp(52px,5.6vw,92px); font-weight:400; letter-spacing:.025em; line-height:1; }
+.mobileChallengeBrand { display:none; }
 .slideCopy button { padding:13px 18px; border:1px solid #fff; color:#fff; font-size:11px; font-weight:800; }
 .slideCopy button:hover { background:#fff; color:#111; }
 .challengeSlide .slideCopy { top:auto; bottom:10%; }
@@ -63,15 +64,18 @@ button { padding:0; border:0; background:none; color:inherit; font:inherit; curs
   .homeHeader { height:86px; padding:16px 18px; }
   .homeTools { gap:14px; }
   .homeTools button:not(:nth-last-child(-n+2)) { display:none; }
-  .homeSidebar { left:18px; top:auto; bottom:calc(var(--ticker-h) + 25px); transform:none; }
-  .categoryNav { gap:10px; min-width:120px; }
+  .homeSidebar { left:0; right:0; top:auto; bottom:calc(var(--ticker-h) + 18px); display:flex; justify-content:center; transform:none; }
+  .homeSidebar .categoryNav { flex-direction:row; align-items:center; justify-content:center; gap:clamp(18px,7vw,34px); width:100%; min-width:0; }
   .categoryNav>button,.category>button { font-size:11px; }
-  .subMenu { position:absolute; left:58px; bottom:0; min-width:100px; padding:12px; background:#111b; }
+  .homeSidebar .subMenu { position:absolute; left:50%; bottom:28px; min-width:110px; padding:12px; transform:translateX(-50%); background:#111e; }
   .heroSlide>img { object-position:62% center; }
   .slideShade { background:linear-gradient(90deg,#0c1112b0,transparent 70%),linear-gradient(0deg,#080a0bc4,transparent 55%); }
   .slideCopy { top:55%; }
   .slideCopy h1 { font-size:13vw; letter-spacing:.015em; }
-  .challengeSlide .slideCopy { bottom:13%; }
+  .challengeSlide .slideCopy { bottom:16%; width:min(78vw,310px); }
+  .mobileChallengeBrand { display:flex; flex-direction:column; align-items:center; margin-bottom:22px; color:#d5d5d2; text-shadow:0 2px 4px #000,0 0 18px #000; }
+  .mobileChallengeBrand img { width:74px; height:122px; object-fit:contain; margin-bottom:12px; filter:drop-shadow(0 4px 3px #000); }
+  .mobileChallengeBrand strong { font-family:"Arial Narrow",Arial,sans-serif; font-size:clamp(23px,7.2vw,32px); line-height:.92; letter-spacing:.025em; text-align:center; }
   .slideIndicator { right:18px; bottom:calc(var(--ticker-h) + 26px); gap:9px; }
   .tickerGroup span { gap:5vw; font-size:10px; letter-spacing:.08em; }
   .shopHeader { height:105px; }
@@ -80,7 +84,7 @@ button { padding:0; border:0; background:none; color:inherit; font:inherit; curs
   .shopTools { gap:12px; font-size:10px; }
   .shopTools button:nth-child(-n+2) { display:none; }
   .shopSidebar { position:relative; top:auto; left:auto; margin:65px 0 30px; }
-  .shopSidebar .categoryNav { flex-direction:row; flex-wrap:wrap; align-items:flex-start; gap:18px; }
+  .shopSidebar .categoryNav { flex-direction:row; flex-wrap:nowrap; align-items:center; gap:clamp(16px,6vw,28px); min-width:0; }
   .shopSidebar .subMenu { position:static; background:#f3f3f1; }
   .comingSoon { min-height:60svh; }
 }

@@ -86,6 +86,12 @@ export default function Home() {
             <img src={asset(slide.image)} alt={`DINO ${slide.title}`} />
             <div className="slideShade" />
             <div className="slideCopy">
+              {slide.className === "challengeSlide" && (
+                <div className="mobileChallengeBrand" aria-hidden="true">
+                  <img src={asset("/dino-logo-transparent-v1.png")} alt="" />
+                  <strong>STRONGER<br />STARTS HERE</strong>
+                </div>
+              )}
               {slide.title && <h1>{slide.title}</h1>}
               <button onClick={openProducts}>SHOP NOW</button>
             </div>
