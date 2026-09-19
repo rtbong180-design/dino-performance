@@ -41,7 +41,19 @@ function Ticker() {
 }
 
 function InstagramMark() {
-  return <button className="instagramMark" aria-label="Instagram"><span><img src={asset("/instagram-icon.png")} alt="" /></span></button>;
+  return <a className="instagramMark" href="https://www.instagram.com/dinosaur___official" target="_blank" rel="noopener noreferrer" aria-label="DINO 공식 Instagram 열기"><span><img src={asset("/instagram-icon.png")} alt="" /></span></a>;
+}
+
+function AccountTools() {
+  return (
+    <nav className="accountTools" aria-label="회원 및 쇼핑 메뉴">
+      <button>Login</button>
+      <button>My Page</button>
+      <button>Board</button>
+      <button className="bagTool" aria-label="장바구니, 상품 0개"><span className="bagIcon" aria-hidden="true" /> / 0</button>
+      <button className="searchTool" aria-label="검색">⌕</button>
+    </nav>
+  );
 }
 
 export default function Home() {
@@ -59,7 +71,7 @@ export default function Home() {
         <header className="shopHeader">
           <InstagramMark />
           <button className="shopLogo" onClick={() => setView("home")} aria-label="홈으로 이동"><img src={asset("/dino-logo-black.png")} alt="DINO 심볼" /><span>DINO</span></button>
-          <div className="shopTools"><button>ABOUT</button><button>PRODUCTS</button><button>BAG / 0</button><button aria-label="검색">⌕</button></div>
+          <AccountTools />
         </header>
         <div className="breadcrumb">Home / ALL</div>
         <aside className="shopSidebar"><CategoryMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} onProducts={openProducts} /></aside>
@@ -74,7 +86,7 @@ export default function Home() {
     <main className="homePage">
       <header className="homeHeader">
         <InstagramMark />
-        <div className="homeTools"><button>ABOUT</button><button onClick={openProducts}>PRODUCTS</button><button>BAG / 0</button><button aria-label="검색">⌕</button></div>
+        <AccountTools />
       </header>
       <aside className="homeSidebar"><CategoryMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} onProducts={openProducts} /></aside>
       <div className="slideDeck" onScroll={(event) => {
